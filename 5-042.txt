@@ -1,0 +1,5 @@
+$ curl -I http://localhost/
+HTTP/1.1 200 OK
+(略)
+Set-Cookie: name=eyJpdiI6IlNlNHZJWHpxV0U0VytqWk1CTTR1UEE9PSIsInZhbHVlIjoiNUI0TGRMSWxacTFnamg0MStGanlJQT09IiwibWFjIjoiZTBmZTE3MmQxMTFmNmU3MWJiMTUxOGYxYzRmMGUwZjRmNjcwNGE5MGJkMDRlN2NjYTA3NGExMzc5YjFkNjM4ZSJ9; path=/; httponly
+(略)

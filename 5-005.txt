@@ -1,0 +1,15 @@
+class RandomNumber extends Number
+{
+    public function __construct()
+    {
+        parent::__construct(mt_rand(1, 10000)); // <---(1)
+    }
+}
+
+app()->singleton('FixedRandomNumber', function () { // <---(2)
+    return new RandomNumber();
+});
+
+$number1 = app('FixedRandomNumber'); // <---(3)
+$number2 = app('FixedRandomNumber'); // <---(3)
+// $number1->getNo() === $number2->getNo()

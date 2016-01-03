@@ -1,0 +1,13 @@
+class TwilioController extends Controller
+{
+    public function postOutbound(Services_Twilio $twilio)
+    {
+        $twilio->account->calls->create(
+            "+18668675309",
+            "+14155551212",
+            "http://demo.twilio.com/docs/voice.xml"
+        );
+
+        return response()->json('ok');
+    }
+}

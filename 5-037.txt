@@ -1,0 +1,21 @@
+<?php
+
+namespace Illuminate\Encryption;
+
+use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
+
+/**
+ * @deprecated since version 5.1. Use Illuminate\Encryption\Encrypter.
+ */
+class McryptEncrypter extends BaseEncrypter implements EncrypterContract
+{
+    public function encrypt($value)
+    {
+        // encrypt
+    }
+
+    public function decrypt($payload)
+    {
+        // decrypt
+    }
+}

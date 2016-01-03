@@ -1,0 +1,6 @@
+app()->bind(Number::class, function () {
+    return new Number();
+});
+
+$number1 = app()->make(Number::class);
+$number2 = app(Number::class);

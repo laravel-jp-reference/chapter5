@@ -1,0 +1,13 @@
+class NoBinding
+{
+    protected $name;
+
+    public function __construct($name = '')
+    {
+        $this->name = $name;
+    }
+}
+
+
+$NoBinding1 = app()->make(NoBinding::class); // <---(1)
+$noBinding2 = app()->make(NoBinding::class, ['Jun']); // <---(2)

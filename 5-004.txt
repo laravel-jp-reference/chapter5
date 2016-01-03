@@ -1,0 +1,8 @@
+use Illuminate\Foundation\Application;
+
+app()->bind(Number::class, function (Application $app, array $parameters) {
+    return new Number($parameters[0]); // <---(1)
+});
+
+$number = app()->make(Number::class, [100]);
+$no = $number->getNo(); // 100

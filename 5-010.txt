@@ -1,0 +1,3 @@
+app()->bind(FooInterface::class, Foo::class);
+
+$foo = app(FooInterface::class); // Fooというクラス名で解決される

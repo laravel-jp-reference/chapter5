@@ -1,0 +1,25 @@
+use Monolog\Logger;
+use Psr\Log\LoggerInterface;
+
+class Bar
+{
+    protected $logger;
+
+    public function __construct(LoggerInterface $logger)
+    {
+        $this->logger = $logger;
+    }
+
+    public function setup()
+    {
+        // setup
+    }
+}
+
+app()->bind(Bar::class, function (Application $app) {
+    $logger = app()->make(Logger::class, ['my_log']);
+    $bar = new Bar($logger); // <---(1)
+    $bar->setup(); // <---(2)
+
+    return $bar;
+});

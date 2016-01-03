@@ -1,0 +1,2 @@
+$res = Guzzle::get('https://github.com');
+$code = $res->getStatusCode(); // 200

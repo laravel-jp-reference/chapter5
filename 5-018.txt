@@ -1,0 +1,23 @@
+class MessageDelivery
+{
+    protected $sender;
+
+    public function __construct(MailSender $sender)
+    {
+        $this->sender = $sender;
+    }
+
+    public function send($to, $message)
+    {
+        $this->sender->send($to, $message);
+    }
+}
+
+class MailSender
+{
+    public function send($to, $message)
+    {
+        // send mail
+    }
+}
+

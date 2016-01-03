@@ -1,0 +1,6 @@
+$instance = new Number(1001);
+app()->instance('SharedNumber', $instance);
+
+$number1 = app('SharedNumber');
+$number2 = app('SharedNumber');
+// $number1->getNo() === $number2->getNo()

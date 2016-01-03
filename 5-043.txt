@@ -1,0 +1,5 @@
+$ curl -I http://localhost/
+HTTP/1.1 200 OK
+(略)
+Set-Cookie: name=Jun; path=/; httponly
+(略)

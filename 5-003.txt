@@ -1,0 +1,21 @@
+class Number
+{
+    protected $no;
+
+    public function __construct($no = 0)
+    {
+        $this->no = $no;
+    }
+
+    public function getNo()
+    {
+        return $this->no;
+    }
+}
+
+app()->bind(Number::class, function () {
+    return new Number();
+});
+
+$number = app()->make(Number::class); // 常に新しいインスタンスを取得
+$no = $number->getNo(); // 0

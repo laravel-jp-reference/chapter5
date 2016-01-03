@@ -1,0 +1,3 @@
+app()->tag([Foo::class, Bar::class], 'tagA'); // <---(1)
+
+$instances = app()->tagged('tagA'); // <---(2)

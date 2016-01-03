@@ -1,0 +1,31 @@
+<?php
+namespace App\Providers;
+
+use App\Foo;
+use Illuminate\Support\ServiceProvider;
+
+class DeferServiceProvider extends ServiceProvider
+{
+    protected $defer = true;
+
+    public function register()
+    {
+        $this->app->bind('my_service', function ($app) {
+            return new Foo();
+        });
+    }
+
+    public function provides()
+    {
+        return [
+            Foo::class,
+        ];
+    }
+
+    public function when()
+    {
+        return [
+            'my_event',
+        ];
+    }
+}

@@ -1,0 +1,49 @@
+<?php
+
+namespace Illuminate\Cookie\Middleware;
+
+use Symfony\Component\HttpFoundation\Response;
+use Illuminate\Contracts\Encryption\Encrypter as EncrypterContract;
+
+class EncryptCookies
+{
+    protected $encrypter;
+
+    public function __construct(EncrypterContract $encrypter) // <---(1)
+    {
+        $this->encrypter = $encrypter;
+    }
+
+    protected function encrypt(Response $response)
+    {
+        foreach ($response->headers->getCookies() as $cookie) {
+            if ($this->isDisabled($cookie->getName())) {
+                continue;
+            }
+
+            $response->headers->setCookie($this->duplicate(
+                $cookie, $this->encrypter->encrypt($cookie->getValue()) // <-(2)
+            ));
+        }
+
+        return $response;
+    }
+
+    protected function decryptCookie($cookie)
+    {
+        return is_array($cookie)
+                        ? $this->decryptArray($cookie)
+                        : $this->encrypter->decrypt($cookie); // <---(3)
+    }
+
+    protected function decryptArray(array $cookie)
+    {
+        $decrypted = [];
+
+        foreach ($cookie as $key => $value) {
+            $decrypted[$key] = $this->encrypter->decrypt($value); // <---(3)
+        }
+
+        return $decrypted;
+    }
+}

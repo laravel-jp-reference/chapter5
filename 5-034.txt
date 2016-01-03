@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Providers;
+
+use Illuminate\Support\ServiceProvider;
+use Services_Twilio;
+
+class TwilioServiceProvider extends ServiceProvider
+{
+    protected $defer = true; // 遅延登録
+
+    public function register()
+    {
+        $this->app->bind(Services_Twilio::class, function () {
+            return new Services_Twilio(
+              env('TWILIO_ACCOUNT_SID'),
+              env('TWILIO_AUTH_TOKEN')
+            );
+        });
+    }
+
+    public function provides()
+    {
+        return [
+            Services_Twilio::class,
+        ];
+    }
+}

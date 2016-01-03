@@ -1,0 +1,3 @@
+app()->bind(Sender::class, function () {
+    return new MailSender();
+});

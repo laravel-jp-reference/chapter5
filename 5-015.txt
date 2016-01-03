@@ -1,0 +1,2 @@
+$app = app();
+$number = $app[Number::class];

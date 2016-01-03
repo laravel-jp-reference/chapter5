@@ -1,0 +1,4 @@
+    'aliases' => [
+        // (略)
+        'Guzzle' => App\Facades\Guzzle::class,
+    ],

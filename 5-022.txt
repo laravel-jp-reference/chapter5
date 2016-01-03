@@ -1,0 +1,10 @@
+class MessageDeliveryMethodInjection
+{
+    public function send(MailSender $sender, $to, $message)
+    {
+        $sender->send($to, $message);
+    }
+}
+
+app()->call(MessageDeliveryMethodInjection::class . '@send',
+            ['to', 'message']); // <---(1)

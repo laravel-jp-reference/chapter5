@@ -1,0 +1,6 @@
+app()->bind(Number::class, function (Application $app, array $parameters) {
+    return new Number($parameters[0]);
+});
+
+$number1 = app()->make(Number::class, [100]);
+$number2 = app(Number::class, [100]);

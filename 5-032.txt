@@ -1,0 +1,4 @@
+    'providers' => [
+        // (略)
+        App\Providers\TwilioServiceProvider::class,
+    ],

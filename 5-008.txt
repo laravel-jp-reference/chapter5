@@ -1,0 +1,3 @@
+app()->bind([Foo::class => 'FooAlias']);
+
+$foo = app()->make('FooAlias'); // Fooクラスのクラス名で解決される

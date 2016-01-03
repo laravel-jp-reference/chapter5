@@ -1,0 +1,9 @@
+app()->bind('Number100', function () {
+    return new Number(100);
+});
+app()->bindIf('Number100', function () { // <---(1)
+    return new Number(200);
+});
+
+$number = app()->make('Number100');
+$no = $number->getNo(); // 100

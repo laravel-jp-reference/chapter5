@@ -1,0 +1,26 @@
+interface EventEmitter
+{
+    // some methods
+}
+
+class A
+{
+    protected $eventEmitter;
+
+    public function __construct(EventEmitter $eventEmitter)
+    {
+      $this->eventEmitter = $eventEmitter;
+    }
+    // （略）
+}
+
+class B
+{
+    protected $eventEmitter;
+
+    public function __construct(EventEmitter $eventEmitter)
+    {
+      $this->eventEmitter = $eventEmitter;
+    }
+    // （略）
+}

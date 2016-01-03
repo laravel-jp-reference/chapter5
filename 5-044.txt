@@ -1,0 +1,1 @@
+$debug = \Config::get('app.debug');

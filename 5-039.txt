@@ -1,0 +1,17 @@
+<?php
+namespace App;
+
+use Illuminate\Contracts\Encryption\Encrypter;
+
+class NoneEncrypter implements Encrypter
+{
+    public function encrypt($value)
+    {
+        return $value;
+    }
+
+    public function decrypt($payload)
+    {
+        return $payload;
+    }
+}

@@ -1,0 +1,9 @@
+use Psr\Log\LoggerInterface;
+
+app()->when(A::class)
+     ->needs(MyEventEmitter::::class)
+     ->give(MyLogger::class); // <---(1)
+
+app()->when(B::class)
+     ->needs(EventEmitter:::class)
+     ->give(YourEventEmitter:::class); // <---(2)

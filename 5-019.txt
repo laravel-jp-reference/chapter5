@@ -1,0 +1,35 @@
+class MessageDeliveryWithInterface
+{
+    protected $sender;
+
+    public function __construct(Sender $sender)
+    {
+        $this->sender = $sender;
+    }
+
+    public function send($to, $message)
+    {
+        $this->sender->send($to, $message);
+    }
+}
+
+interface Sender
+{
+    public function send($to, $message);
+}
+
+class MailSender implements Sender
+{
+    public function send($to, $message)
+    {
+        // send mail
+    }
+}
+
+class SmsSender implements Sender
+{
+    public function send($to, $message)
+    {
+        // send sms
+    }
+}

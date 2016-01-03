@@ -1,0 +1,8 @@
+// app関数から取得
+$app = app();
+
+// Application::getInstanceメソッドから取得
+$app = \Illuminate\Foundation\Application::getInstance();
+
+// Appファサードから取得
+$app = \App::getInstance();

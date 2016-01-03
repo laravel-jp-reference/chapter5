@@ -1,0 +1,2 @@
+$delivery = app()->make(MessageDelivery::class);
+$delivery->send('to', 'message');
